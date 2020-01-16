@@ -154,8 +154,10 @@ class LocalstackPlugin {
 
     return this.startLocalStack().then(
       () => {
+        if (this.isActive()) {
           this.patchServerlessSecrets();
           this.patchS3BucketLocationResponse();
+        }
       }
     );
   }
